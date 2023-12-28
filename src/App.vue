@@ -1,30 +1,34 @@
 <template>
   <div>
     <h1>Countries</h1>
-    <ul v-if="!loading && !error">
-      <li  v-for="country in result.countries" :key="country.code">
-        <div class="w-24 h-24"><h1>{{ country.name }}</h1> - {{ country.capital }} ({{ country.code }})</div>
-      </li>
-    </ul>
+    <div class="justify-center flex-col" v-if="!loading && !error" >
+       
+        <div v-for="country in result.countries" :key="country.code" class="h-52 bg-slate-400 m-2 w-72 inline-block rounded-xl felx justify-center">
+          <h1 class="text-2xl m-2 font-bold">
+          {{ country.name }}</h1> 
+          <h1 class="text-xl m-2">capital: {{ country.capital }}</h1> </div>
+      
+    </div>
+   
     <p v-if="loading">Loading...</p>
     <p v-if="error">Error loading data</p>
+
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 import { gql } from '@apollo/client/core';
 import { useQuery } from '@vue/apollo-composable';
 
-const {result} =useQuery(gql`
-  query {
-    countries {
-      name
-      code
-      capital
-    }
-  }
-`) 
+const {result} =useQuery ( gql`
+      query {
+        countries {
+          name
+          code
+          capital
+        }
+      }
+    `); 
 
 // const { result, loading, error } = useQuery(countriesQuery);
 // const countries = ref([]);
