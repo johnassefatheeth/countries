@@ -2,8 +2,8 @@
   <div>
     <h1>Countries</h1>
     <ul v-if="!loading && !error">
-      <li v-for="country in countries" :key="country.code">
-        {{ country.name }} - {{ country.capital }} ({{ country.code }})
+      <li  v-for="country in result.countries" :key="country.code">
+        <div class="w-24 h-24"><h1>{{ country.name }}</h1> - {{ country.capital }} ({{ country.code }})</div>
       </li>
     </ul>
     <p v-if="loading">Loading...</p>
@@ -12,11 +12,11 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { gql } from '@apollo/client/core';
 import { useQuery } from '@vue/apollo-composable';
 
-const countriesQuery = gql`
+const {result} =useQuery(gql`
   query {
     countries {
       name
@@ -24,15 +24,23 @@ const countriesQuery = gql`
       capital
     }
   }
-`;
+`) 
 
-const { result, loading, error } = useQuery(countriesQuery);
-const countries = ref([]);
+// const { result, loading, error } = useQuery(countriesQuery);
+// const countries = ref([]);
 
-onMounted(async () => {
-  console.log(result)
-  const data  =result.value; // Access the function by calling result.value()
-  countries.value = data.countries;
+// // Load countries from localStorage if available
+// const storedCountries = localStorage.getItem('countries');
+// if (storedCountries) {
+//   countries.value = JSON.parse(storedCountries);
+// } else {
+//   onMounted(() => {
+//     if (result.value) {
+//       countries.value = result.value.countries;
+//       localStorage.setItem('countries', JSON.stringify(result.value.countries));
+//     }
+//   });
+// }
 
-});
+console.log(result.value);
 </script>
