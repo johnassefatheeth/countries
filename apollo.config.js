@@ -4,7 +4,7 @@ module.exports = {
       service: {
         name: 'my-app',
         // URL to the GraphQL API
-        url: 'http://localhost:3000/graphql',
+        url: 'https://countries.trevorblades.com/',
       },
       // Files processed by the extension
       includes: [
