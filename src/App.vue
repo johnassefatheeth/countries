@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Countries</h1>
-    <div class="justify-center flex-col" v-if="!loading && !error" >
+    <div class="justify-center" v-if="!loading && !error" >
        
         <div v-for="country in result.countries" :key="country.code" class="h-52 bg-slate-400 m-2 w-72 inline-block rounded-xl felx justify-center">
           <h1 class="text-2xl m-2 font-bold">
