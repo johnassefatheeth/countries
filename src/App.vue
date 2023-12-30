@@ -1,24 +1,11 @@
 <template>
-  <div>
-    <h1>Countries</h1>
-    <div class="justify-center" v-if="!loading && !error" >
-       
-        <div v-for="country in result.countries" :key="country.code" class="h-52 bg-slate-400 m-2 w-72 inline-block rounded-xl felx justify-center">
-          <h1 class="text-2xl m-2 font-bold">
-          {{ country.name }}</h1> 
-          <h1 class="text-xl m-2">capital: {{ country.capital }}</h1> </div>
-      
-    </div>
-   
-    <p v-if="loading">Loading...</p>
-    <p v-if="error">Error loading data</p>
-
-  </div>
+  <Countries/>
 </template>
 
 <script setup>
 import { gql } from '@apollo/client/core';
 import { useQuery } from '@vue/apollo-composable';
+import Countries from "./components/Countries.vue";
 
 const {result} =useQuery ( gql`
       query {
