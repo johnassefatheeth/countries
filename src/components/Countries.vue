@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <h1>Countries</h1>
+    <div class="justify-center flex flex-col content-center w-screen items-center bg-zinc-600 p-4">
+      <h4 class="text-4xl m-4 text-cyan-300 center">Countries</h4>
       <div class="justify-center" v-if="!loading && !error" >
          
           <div v-for="country in result.countries" :key="country.code" class="h-52 bg-slate-400 m-2 w-72 inline-block rounded-xl felx justify-center">
