@@ -6,7 +6,9 @@
           <div v-for="country in result.countries" :key="country.code" class="h-52 bg-slate-400 m-2 w-72 inline-block rounded-xl felx justify-center">
             <h1 class="text-2xl m-2 font-bold">
             {{ country.name }}</h1> 
-            <h1 class="text-xl m-2">capital: {{ country.capital }}</h1> </div>
+            <h1 class="text-xl m-2">capital: {{ country.capital }}</h1> 
+                {{ country.code }}
+        </div>
         
       </div>
      
@@ -47,5 +49,4 @@
   //   });
   // }
   
-  console.log(result.value);
   </script>

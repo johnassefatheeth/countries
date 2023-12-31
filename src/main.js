@@ -3,6 +3,7 @@ import App from './App.vue'; // Make sure to provide the correct path to your Ap
 import { DefaultApolloClient } from '@vue/apollo-composable';
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core';
 import "./style.css";
+import router from './router';
 
 const httpLink = createHttpLink({
   uri: 'https://countries.trevorblades.com/',
@@ -21,5 +22,7 @@ const app = createApp({
   },
   render: () => h(App),
 });
+
+app.use(router)
 
 app.mount('#app');
