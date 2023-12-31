@@ -1,7 +1,7 @@
 <template>
     <div v-if="country">
       <h1>{{ country.country.name }}</h1>
-      <p>Capital: {{ country.country.Capital  }}</p>
+      <p>Capital: {{ country.country.capital  }}</p>
       <p>Code: {{ result.country.code }}</p>
       <p>Amazon Web Services Region: {{ country.country.awsRegion }}</p>
       <p>Currency: {{ country.country.currency }}</p>
