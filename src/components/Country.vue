@@ -44,7 +44,7 @@
   refetch().then(() => {
     if (result.value) {
       country.value = result.value;
-      console.log('Country updated:', country.value);
+      console.log(country.value);
     }
   });
 });
